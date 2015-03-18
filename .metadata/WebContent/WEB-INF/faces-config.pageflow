@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13807338189016" configfile="/bazaTemplate/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="loginAdmin.xhtml" comment="Loging Admin" x="36" id="pf13807338858727" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13807338858728" path="/loginAdmin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adminUser.xhtml" x="24" y="180" id="pf13807338858729" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13807338858728" path="/adminUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adminTable.xhtml" x="229" y="48" id="pf13808146740755" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf13808152785539" inlinks="pf138081527855310" path="/adminTable.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="dodTab.xhtml" x="240" y="240" id="pf138081527855311" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf138081527855310" inlinks="pf13808152785539" path="/dodTab.xhtml"/>
+  <links id="pf13807338858728" target="pf13807338858729" source="pf13807338858727" outcome="valid" redirect="true"/>
+  <links id="pf13808152785539" target="pf138081527855311" source="pf13808146740755" outcome="dodTab" redirect="true"/>
+  <links id="pf138081527855310" target="pf13808146740755" source="pf138081527855311" outcome="tabele" redirect="true"/>
+</pageflow:Pageflow>

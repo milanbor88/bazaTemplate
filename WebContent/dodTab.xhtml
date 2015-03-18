@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<h:head>
+	za proveru da li je neko ulogovan isLogin=true
+	<f:metadata>
+			<f:event listener="#{loginAdmin.verifyLogin}" type="preRenderView"></f:event>
+	</f:metadata>
+	</h:head>
+
+<ui:composition template="template.xhtml">
+
+	<ui:param name="curFile" value="Nova tabela" />
+
+	<ui:define name="content">
+	
+<!-- 	<ui:include src="menu.xhtml"></ui:include> -->
+	
+	<f:view>
+		<h:form id="formKolone">
+
+	
+			<h:outputText value="Ime nove tabele:" />
+			<h:inputText id="novaTab" />
+			<br />
+			<h:outputText value="Opis Tabele" />
+			<h:inputTextarea rows="5" cols="10" id="noviOpis" />
+			<br />
+	
+			<h:panelGrid binding="#{noviElem.dataGrid }"></h:panelGrid>
+	
+			<h:commandButton value="Dodaj Tabelu" action="#{tableMan.dodajTab(noviElem.brojElem) }" />
+	
+			<h:commandButton value="Nazad" action="#{noviElem.vrati}"></h:commandButton>
+			<h:messages globalOnly="true"></h:messages>
+		</h:form>
+	</f:view>
+	  	
+	</ui:define>
+
+</ui:composition>
+</html>

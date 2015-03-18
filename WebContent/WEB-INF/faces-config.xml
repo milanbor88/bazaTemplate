@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+    version="2.1">
+    
+
+    
+    <managed-bean>
+		<managed-bean-name>loginAdmin</managed-bean-name>
+		<managed-bean-class>logovanje.LoginAdmin</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+<!-- 	 <managed-bean>
+		<managed-bean-name>loginUser</managed-bean-name>
+		<managed-bean-class>logovanje.LoginUser</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean> -->
+	
+	<managed-bean>
+		<managed-bean-name>userMan</managed-bean-name>
+		<managed-bean-class>user.UserManager</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+			<managed-bean>
+		<managed-bean-name>tableMan</managed-bean-name>
+		<managed-bean-class>tabela.TableManager</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	
+	<managed-bean>
+		<managed-bean-name>noviElem</managed-bean-name>
+		<managed-bean-class>elements.NoviElementi</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+		<navigation-rule>
+		<description>Loging Admin</description>
+		<from-view-id>/loginAdmin.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>valid</from-outcome>
+			<to-view-id>/adminUser.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+		<navigation-rule>
+		<from-view-id>/adminTable.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>dodTab</from-outcome>
+			<to-view-id>/dodTab.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/dodTab.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>tabele</from-outcome>
+			<to-view-id>/adminTable.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule> 
+
+
+</faces-config>

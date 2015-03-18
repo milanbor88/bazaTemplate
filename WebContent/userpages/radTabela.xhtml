@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:param name="curFile" value="CRUD Tabela" />
+	<ui:define name="content">
+	
+		<f:view>
+		
+			<h:form id="formRad">
+				<h:panelGrid binding="#{noviElem.dataGridT}"  />
+				
+				<h:commandButton value="Nazad" action="#{noviElem.vratiTab}" />
+			</h:form>
+			
+		</f:view>
+	    
+	</ui:define>
+	
+</ui:composition>
+</html>

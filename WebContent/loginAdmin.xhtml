@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+
+<ui:composition template="template.xhtml">
+	<ui:param name="curFile" value="Login Admin" />
+	<ui:define name="content">
+	    <f:view>
+
+
+	<h:form id="loginAdmin">
+		<h:outputText value="Administrator: " />
+		<h:inputText id="adminName" value="#{loginAdmin.adminName }"  required="true"/>
+		<h:message for="adminName" id="adminNamePoruka"  />
+		<br />
+		<h:outputText value="Sifra: " />
+		<h:inputSecret id="password" value="#{loginAdmin.password }"  required="true"/>
+		<h:message for="password" id="passwordPoruka"/>
+		<br />
+		<h:commandButton type="submit" value="Prijava" action="#{loginAdmin.proveraSifreAdmina }" />
+		<h:commandButton value="resetuj" type="reset" />
+		<h:messages globalOnly="true" layout="table"  />
+	</h:form>
+
+</f:view>
+	</ui:define>
+	
+</ui:composition>
+</h:body>
+</html>

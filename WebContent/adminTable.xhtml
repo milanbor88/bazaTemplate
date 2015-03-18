@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+<h:head>
+<!-- za proveru da li je neko ulogovan isLogin=true -->
+	<f:metadata>
+		<f:event listener="#{loginAdmin.verifyLogin}" type="preRenderView"></f:event>
+	</f:metadata>
+</h:head>
+
+<ui:composition template="template.xhtml">
+
+	<ui:param name="curFile" value="Tabele"/>
+
+	<ui:define name="content">
+	   <ui:include src="menu.xhtml"></ui:include>
+	   
+	   <f:view>
+	   
+	   		<h:form id="tabForm">
+	   	
+				<h:outputText value="Broj kolona u tabeli" />
+				<h:inputText id="noveKol" value="#{noviElem.brojElem}" />
+				<h:commandButton type="submit" action="#{tableMan.novaTab }" value="Dodaj novu Tabelu" />
+				
+				<br />
+				<br />
+				
+				<h:outputText value="Korisnik" />
+				<h:outputText value="Tabela" />
+				
+				<br />
+				
+				<h:selectOneMenu value="#{userMan.korisnici}" styleClass="pok" id="korisnik" >
+				<f:selectItems value="#{userMan.korisniciVred }"/>
+				</h:selectOneMenu>
+				
+				<h:selectOneMenu value="#{tableMan.tabele}" styleClass="pok" id="tabela" >
+				<f:selectItems value="#{tableMan.tabeleVred }"/>
+				</h:selectOneMenu>
+				
+				<h:commandButton value="Povezi Korisnika sa tabelon" actionListener="#{tableMan.poveziKor }"></h:commandButton>
+			
+				<h:messages globalOnly="true" layout="table"  />
+			</h:form>
+	   
+	   </f:view>
+	</ui:define>
+
+</ui:composition>
+</html>

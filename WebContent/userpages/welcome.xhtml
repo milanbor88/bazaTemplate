@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:param name="curFile" value="Welcome page" />
+	<ui:define name="content">
+	
+		<f:view>
+		<h:form>
+		>
+	  	<!-- 	  Welcome
+	  		   #{loginUser.username} -->
+	  		 <h:outputText value="#{loginUser.username}" />
+	  		 <br />	  		 
+	    	 <h:commandButton type="submit" value="Odloguj se" action="#{loginUser.logout}" />
+	    	 <h:outputLink value="userTab.xhtml">Tabele ya izabrat</h:outputLink>
+	    	 <h:messages globalOnly="true" layout="table"  />
+	    </h:form>
+	   </f:view> 
+	</ui:define>
+
+</ui:composition>
+</html>

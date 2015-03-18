@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+<h:head>
+<!-- za proveru da li je neko ulogovan isLogin=true -->
+	<f:metadata>
+		<f:event listener="#{loginAdmin.verifyLogin}" type="preRenderView"></f:event>
+	</f:metadata>
+</h:head>
+
+
+<ui:composition template="template.xhtml">
+	
+	<ui:param name="curFile" value="Korisinici" />
+	
+	<ui:define name="content">
+
+	<ui:include src="menu.xhtml"></ui:include>
+	
+	<f:view>
+
+	<h:form id="adminForm">
+	
+	<h:outputLabel>Izaberite korisnika</h:outputLabel>
+	<h:selectOneMenu value="#{userMan.korisnici}" styleClass="pok"  
+	valueChangeListener="#{userMan.promenaKor }" onchange="submit()" >
+	<f:selectItems value="#{userMan.korisniciVred }"/>
+	</h:selectOneMenu>
+	
+	<br />
+	<h:dataTable value="#{userMan.prikazikorisnika }" var="prikaz" 
+		border="1">
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Korisnik" />
+			</f:facet>
+			<h:outputText value="#{prikaz.username }" ></h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Sifra" />
+			</f:facet>
+			<h:outputText value="#{prikaz.password }"></h:outputText>
+		</h:column>	
+		
+	</h:dataTable>
+
+<br />
+<br /><br />
+
+	<table border="1">
+		<tr>
+			<th>Korisnikco ime</th>
+			<th>Sifra korisnika</th>
+		</tr>
+		<tr>
+			<td><h:outputText value="#{userMan.ime }"></h:outputText></td>
+			<td><h:outputText value="#{userMan.sifra }"></h:outputText></td>
+		</tr>
+		
+	</table>
+
+	<br />
+	<h:outputText value="Korisnik: " />
+	<h:inputText id="novIme"  />
+
+	<h:outputText value="Sifra" />
+	<h:inputSecret id="novSif"   />
+
+	<br />
+	<h:commandButton value="Dodaj Korisnika" actionListener="#{userMan.dodajKor}" /> 
+	<h:commandButton value="Obrisi prikazanog Korisnika" 
+	actionListener="#{userMan.obrisiKor }" />
+	<h:commandButton value="Izmeni prikazanog korisnika" 
+	actionListener="#{userMan.izmeniKor }" />
+	<h:messages globalOnly="true" layout="table"  />
+</h:form>
+	
+	</f:view>
+
+	</ui:define>
+	
+</ui:composition>
+
+</html>
